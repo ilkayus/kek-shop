@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text } from "react-native";
+import { useEffect, useState } from "react";
 import { useAppSelector } from "../hooks/typedReduxHooks";
 import { selectUser, selectIsUserPending } from "../features/user/userSlice";
-import { useEffect, useState } from "react";
 
 const UserIcon = () => {
   const user = useAppSelector(selectUser);

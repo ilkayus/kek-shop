@@ -2,6 +2,8 @@ interface IProductData {
   id: number;
   title: string;
   price: number;
+  discountRate?: number;
+  discountPrice?: number;
   description: string;
   category:
     | "electronics"

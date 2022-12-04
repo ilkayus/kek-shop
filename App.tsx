@@ -1,12 +1,12 @@
+import React from "react";
+import { View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { HomeScreen, ProductScreen, CartScreen } from "./screens";
-import { store } from "./store";
+import store from "./src/store";
 import { Provider } from "react-redux";
-import Apploader from "./components/Apploader";
-import type { RootStackParamList } from "./types/navigator.types";
-import { Header, FooterNav } from "./components";
-import { View } from "react-native";
+import type { RootStackParamList } from "./src/types/navigator.types";
+import * as Screens from "./src/screens";
+import { Header, Apploader } from "./src/components";
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
@@ -21,9 +21,12 @@ export default function App() {
             initialRouteName="Home"
             screenOptions={{ headerShown: false }}
           >
-            <RootStack.Screen name="Home" component={HomeScreen} />
-            <RootStack.Screen name="Product" component={ProductScreen} />
-            <RootStack.Screen name="Cart" component={CartScreen} />
+            <RootStack.Screen name="Home" component={Screens.HomeScreen} />
+            <RootStack.Screen
+              name="Product"
+              component={Screens.ProductScreen}
+            />
+            <RootStack.Screen name="Cart" component={Screens.CartScreen} />
             {/* <RootStack.Screen name="Cart" component={CartScreen} />
         <RootStack.Screen name="Profile" component={ProfileScreen} />
         <RootStack.Screen name="Categories" component={CategoriesScreen} />

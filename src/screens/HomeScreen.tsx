@@ -1,33 +1,25 @@
 import { StyleSheet, ScrollView, View } from "react-native";
-import {
-  Header,
-  Search,
-  Location,
-  Categories,
-  Popular,
-  Suggested,
-  FooterNav,
-} from "../components";
+import * as Components from "../components";
 
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
       {/* <Header /> */}
       <View style={styles.searchRowContainer}>
-        <Search />
-        <Location />
+        <Components.Search />
+        <Components.Location />
       </View>
       <View style={{ flex: 9 }}>
         <ScrollView showsVerticalScrollIndicator={false}>
-          <Categories />
-          <Popular />
-          <Suggested />
+          <Components.Categories />
+          <Components.Popular />
+          <Components.Discounts />
+          <Components.Suggested />
         </ScrollView>
       </View>
       {/* <FooterNav /> */}
       {/* 
       <Featured />
-      <Discounts /> 
     */}
     </View>
   );

@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../store";
 import { IProductData } from "../../types";
 import API from "../../api";
@@ -56,10 +55,29 @@ export const fetchProducts = createAsyncThunk(
 export const dataSlice = createSlice({
   name: "data",
   initialState,
-  reducers: {},
+  reducers: {
+    updateDiscounts: {
+      reducer(state, action: { payload: IProductData[] }) {
+        action.payload.forEach((product: IProductData) => {
+          state.products[product.id] = product;
+        });
+      },
+      prepare(products: IProductData[], rates: number[]) {
+        products = products.map((product, idx) => {
+          product.discountRate = rates[idx];
+          product.discountPrice =
+            product.price - (product.price * rates[idx]) / 100;
+          return product;
+        });
+        return {
+          payload: products,
+        };
+      },
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchCategories.fulfilled, (state, action) => {
-      // state.categories = action.payload;
+      state.categories = action.payload;
     });
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
       state.products = action.payload;
@@ -67,7 +85,7 @@ export const dataSlice = createSlice({
   },
 });
 
-// export const { increment, decrement, incrementByAmount } = dataSlice.actions;
+export const { updateDiscounts } = dataSlice.actions;
 export const selectCategories = (state: RootState) => state.data.categories;
 export const selectProducts = (state: RootState) => state.data.products;
 export default dataSlice.reducer;

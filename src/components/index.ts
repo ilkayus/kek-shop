@@ -1,3 +1,4 @@
+import Apploader from "./Apploader";
 import Header from "./Header";
 import UserIcon from "./UserIcon";
 import ShoppingCartIcon from "./ShoppingCartIcon";
@@ -14,8 +15,10 @@ import FooterNav from "./FooterNav";
 import AddToCart from "./AddToCart";
 import HeaderText from "./HeaderText";
 import ProductListCard from "./ProductListCard";
+import Discounts from "./Discounts";
 
 export {
+  Apploader,
   Header,
   UserIcon,
   ShoppingCartIcon,
@@ -32,4 +35,5 @@ export {
   AddToCart,
   HeaderText,
   ProductListCard,
+  Discounts,
 };

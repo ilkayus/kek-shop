@@ -2,7 +2,7 @@ import { useApploader } from "../hooks/useApploader";
 
 const Apploader = () => {
   useApploader();
-  return <></>;
+  return null;
 };
 
 export default Apploader;
