@@ -27,6 +27,14 @@ const ProductScreen = ({ route, navigation }: Props) => {
             {product?.category}
           </Text>
           <View style={styles.ratingContainer}>
+            {product?.discountRate ? (
+              <>
+                <Image style={styles.icon} source={icons.coupon} />
+                <Text style={{ paddingRight: 15 }}>
+                  %{product?.discountRate}
+                </Text>
+              </>
+            ) : null}
             <Image style={styles.icon} source={icons.star} />
             <Text style={{ paddingRight: 15 }}>{product?.rating.rate}</Text>
             <Text>({product?.rating.count})</Text>
@@ -35,7 +43,11 @@ const ProductScreen = ({ route, navigation }: Props) => {
         <Text numberOfLines={5} style={{ marginTop: 10 }}>
           {product?.description}
         </Text>
-        <AddToCart productId={product?.id} price={product?.price} />
+        <AddToCart
+          productId={product?.id}
+          price={product?.price}
+          discountPrice={product?.discountPrice}
+        />
       </View>
     </View>
   );

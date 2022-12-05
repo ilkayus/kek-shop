@@ -6,9 +6,10 @@ import { useAppDispatch } from "../hooks/typedReduxHooks";
 interface Props {
   productId?: number;
   price?: number;
+  discountPrice?: number;
 }
 
-const AddToCart = ({ productId, price }: Props) => {
+const AddToCart = ({ productId, price, discountPrice }: Props) => {
   if (!price) return null;
   const [count, setCount] = useState(1);
   const dispatch = useAppDispatch();
@@ -20,7 +21,17 @@ const AddToCart = ({ productId, price }: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.pricing}>
-        <Text style={styles.price}>${(price * count).toFixed(2)}</Text>
+        {discountPrice ? (
+          <View style={styles.price}>
+            <Text style={styles.oldPrice}>${(price * count).toFixed(2)}</Text>
+            <Text style={styles.newPrice}>
+              ${(discountPrice * count).toFixed(2)}
+            </Text>
+          </View>
+        ) : (
+          <Text style={styles.price}>${(price * count).toFixed(2)}</Text>
+        )}
+
         <View style={styles.count}>
           <Text
             onPress={() => setCount((prev) => (prev < 10 ? prev + 1 : prev))}
@@ -47,9 +58,22 @@ export default AddToCart;
 const styles = StyleSheet.create({
   container: {},
   price: {
-    fontSize: 16,
+    fontSize: 20,
     padding: 15,
     paddingLeft: 0,
+    fontWeight: "bold",
+  },
+  oldPrice: {
+    fontSize: 10,
+    textAlign: "center",
+    textDecorationLine: "line-through",
+    color: "gray",
+  },
+  newPrice: {
+    fontSize: 20,
+    padding: 15,
+    paddingLeft: 0,
+    paddingTop: 0,
     fontWeight: "bold",
   },
   count: {

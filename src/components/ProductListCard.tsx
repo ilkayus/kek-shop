@@ -56,7 +56,8 @@ const ProductListCard = ({ product, count, sumPrice }: Props) => {
               {product?.title.slice(0, 24)}...
             </Text>
             <Text>
-              Qty:{count} unit:${product?.price}
+              Qty:{count} unit:$
+              {(product?.discountPrice || product?.price)?.toFixed(2)}
             </Text>
           </View>
           <Text style={styles.price}>${sumPrice?.toFixed(2)}</Text>

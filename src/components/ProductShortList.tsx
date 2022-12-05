@@ -22,6 +22,8 @@ const ProductShortList = ({ title, data }: Props) => {
               title={item.item.title}
               image={item.item.image}
               price={item.item.price}
+              discountRate={item.item.discountRate}
+              discountPrice={item.item.discountPrice}
             />
           );
         }}

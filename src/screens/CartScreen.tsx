@@ -8,7 +8,6 @@ const CartScreen = () => {
   const cart = useAppSelector(selectUserCart);
   const products = useAppSelector(selectProducts);
   const dispatch = useAppDispatch();
-
   const cartProducts =
     cart.length > 0
       ? cart[0].products.map((cartProduct) => {
@@ -19,7 +18,8 @@ const CartScreen = () => {
             return {
               product,
               count: cartProduct.quantity,
-              sumPrice: cartProduct.quantity * product.price,
+              sumPrice:
+                cartProduct.quantity * (product.discountPrice || product.price),
             };
           } else return;
         })
