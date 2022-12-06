@@ -53,4 +53,5 @@ enum ScreenTitles {
   Category = "Category",
   Product = "Product",
   Search = "Search",
+  Checkout = "Checkout",
 }

@@ -3,6 +3,7 @@ import { ProductListCard } from "../components";
 import { selectUserCart } from "../features/user/userSlice";
 import { selectProducts } from "../features/commonData/dataSlice";
 import { useAppSelector } from "../hooks/typedReduxHooks";
+import { useNavigation } from "@react-navigation/native";
 
 const CartScreen = () => {
   const cart = useAppSelector(selectUserCart);
@@ -23,6 +24,11 @@ const CartScreen = () => {
           } else return;
         })
       : [];
+
+  const navigation = useNavigation();
+  const navigateToCheckout = () => {
+    navigation.navigate("Checkout" as never);
+  };
 
   return (
     <View style={styles.container}>
@@ -56,7 +62,11 @@ const CartScreen = () => {
             .toFixed(2)}
         </Text>
         <View style={{ flex: 5 }}>
-          <Button color="#442120" title="Check Out" />
+          <Button
+            onPress={navigateToCheckout}
+            color="#442120"
+            title="Check Out"
+          />
         </View>
       </View>
     </View>

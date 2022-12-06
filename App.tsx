@@ -39,9 +39,13 @@ export default function App() {
                   name="Category"
                   component={Screens.CategoryScreen}
                 />
+                <RootStack.Screen
+                  name="Checkout"
+                  component={Screens.CheckoutScreen}
+                />
                 {/* <RootStack.Screen name="Cart" component={CartScreen} />
         <RootStack.Screen name="Profile" component={ProfileScreen} />
-      <RootStack.Screen name="Checkout" component={CheckoutScreen} /> */}
+       */}
               </RootStack.Navigator>
             </View>
             {/* <FooterNav /> */}

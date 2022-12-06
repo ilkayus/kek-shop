@@ -4,4 +4,5 @@ export type RootStackParamList = {
   Cart: undefined;
   Category: { category: string };
   Search: undefined;
+  Checkout: undefined;
 };

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { IProductData } from "../types";
 import { useAppDispatch } from "../hooks/typedReduxHooks";
 import { addOne, removeOne, removeProduct } from "../features/user/userSlice";
+import { useNavigation } from "@react-navigation/native";
 
 interface Props {
   product?: IProductData;
@@ -13,6 +14,13 @@ interface Props {
 const ProductListCard = ({ product, count, sumPrice }: Props) => {
   const dispatch = useAppDispatch();
   const [modalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation();
+  const navigateToProduct = () => {
+    navigation.navigate(
+      "Product" as never,
+      { productId: product?.id } as never
+    );
+  };
 
   const addOneHandler = () => {
     if (!product) return;
@@ -32,6 +40,7 @@ const ProductListCard = ({ product, count, sumPrice }: Props) => {
       android_ripple={{ color: "#ccc" }}
       style={styles.container}
       onPress={() => setModalVisible(true)}
+      onLongPress={navigateToProduct}
     >
       {modalVisible ? (
         <View style={styles.edit}>
