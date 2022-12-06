@@ -12,12 +12,14 @@ const Header = () => {
 
   useEffect(() => {
     navigation.addListener("state", () => {
+      // @ts-ignore
       setCurrentScreen(navigation.getCurrentRoute().name);
     });
 
     return () => {
       navigation.removeListener(
         "state",
+        // @ts-ignore
         setCurrentScreen(navigation.getCurrentRoute().name)
       );
     };

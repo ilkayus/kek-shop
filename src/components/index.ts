@@ -15,6 +15,7 @@ import AddToCart from "./AddToCart";
 import HeaderText from "./HeaderText";
 import ProductListCard from "./ProductListCard";
 import Discounts from "./Discounts";
+import SearchResult from "./SearchResult";
 
 export {
   Header,
@@ -34,4 +35,5 @@ export {
   HeaderText,
   ProductListCard,
   Discounts,
+  SearchResult,
 };

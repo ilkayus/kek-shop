@@ -9,9 +9,11 @@ const Location = () => {
   if (isUserPending) return null;
   return (
     <View style={styles.locationContainer}>
-      <Image style={styles.icon} source={icons.location} />
-      <View>
+      <View style={styles.topContainer}>
+        <Image style={styles.icon} source={icons.location} />
         <Text style={styles.province}>{user.address.city}</Text>
+      </View>
+      <View style={styles.bottomContainer}>
         <Text numberOfLines={2} style={styles.address}>
           {user.address.street}
         </Text>
@@ -24,7 +26,6 @@ export default Location;
 
 const styles = StyleSheet.create({
   locationContainer: {
-    flexDirection: "row",
     alignItems: "center",
     backgroundColor: "#dddddd66",
     borderRadius: 4,
@@ -36,9 +37,24 @@ const styles = StyleSheet.create({
     margin: 7,
     marginLeft: 0,
   },
+  topContainer: {
+    marginTop: 5,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    alignSelf: "baseline",
+    flex: 1,
+  },
+  bottomContainer: {
+    flex: 2,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "baseline",
+    marginLeft: 5,
+  },
   icon: {
     opacity: 0.4,
-    margin: 10,
+    margin: 5,
     width: 20,
     height: 20,
   },

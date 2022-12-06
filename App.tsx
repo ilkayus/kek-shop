@@ -32,6 +32,10 @@ export default function App() {
                 />
                 <RootStack.Screen name="Cart" component={Screens.CartScreen} />
                 <RootStack.Screen
+                  name="Search"
+                  component={Screens.SearchScreen}
+                />
+                <RootStack.Screen
                   name="Category"
                   component={Screens.CategoryScreen}
                 />

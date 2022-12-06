@@ -1,12 +1,17 @@
-import { StyleSheet, Text, View, TextInput, Image } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import * as icons from "../assets/icons";
 
 const Search = () => {
+  const navigation = useNavigation();
+  const navigateToSearch = () => {
+    navigation.navigate("Search" as never);
+  };
   return (
-    <View style={styles.searchContainer}>
+    <TouchableOpacity style={styles.searchContainer} onPress={navigateToSearch}>
       <Image style={styles.icon} source={icons.search} />
-      <TextInput style={styles.input} placeholder="Search for anything" />
-    </View>
+      <Text style={styles.input}>Search for anything</Text>
+    </TouchableOpacity>
   );
 };
 
@@ -31,5 +36,5 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
   },
-  input: {},
+  input: { opacity: 0.4 },
 });
