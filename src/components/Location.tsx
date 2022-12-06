@@ -1,13 +1,20 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import * as icons from "../assets/icons";
+import { useAppSelector } from "../hooks";
+import { selectUser, selectIsUserPending } from "../features/user/userSlice";
 
 const Location = () => {
+  const user = useAppSelector(selectUser);
+  const isUserPending = useAppSelector(selectIsUserPending);
+  if (isUserPending) return null;
   return (
     <View style={styles.locationContainer}>
       <Image style={styles.icon} source={icons.location} />
       <View>
-        <Text style={styles.province}>İzmir,TR</Text>
-        <Text style={styles.address}>İşyeri</Text>
+        <Text style={styles.province}>{user.address.city}</Text>
+        <Text numberOfLines={2} style={styles.address}>
+          {user.address.street}
+        </Text>
       </View>
     </View>
   );

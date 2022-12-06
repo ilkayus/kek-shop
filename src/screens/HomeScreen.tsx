@@ -1,4 +1,4 @@
-import { StyleSheet, ScrollView, View } from "react-native";
+import { StyleSheet, ScrollView, View, SafeAreaView } from "react-native";
 import * as Components from "../components";
 
 const HomeScreen = () => {

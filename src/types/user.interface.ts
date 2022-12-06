@@ -1,3 +1,13 @@
+type TAddress = {
+  city: string;
+  street: string;
+  number: number;
+  zipcode: string;
+  geo: {
+    lat: string;
+    lng: string;
+  };
+};
 interface IUserData {
   id: number;
   name: {
@@ -7,16 +17,7 @@ interface IUserData {
   username: string;
   email: string;
   phone: string;
-  address: {
-    city: string;
-    street: string;
-    number: number;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  }[];
+  address: TAddress;
 }
 
 export default IUserData;

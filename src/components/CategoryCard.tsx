@@ -1,13 +1,17 @@
 import { StyleSheet, Text, TouchableOpacity, Image } from "react-native";
-
+import { useNavigation } from "@react-navigation/native";
 interface Props {
   title: string;
   image: any;
 }
 
 const CategoryCard = ({ title, image }: Props) => {
+  const navigation = useNavigation();
+  const navigateToCategory = () => {
+    navigation.navigate("Category" as never, { category: title } as never);
+  };
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={navigateToCategory}>
       <Image style={styles.image} source={image} />
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>

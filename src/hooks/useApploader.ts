@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useAppDispatch } from "../hooks/typedReduxHooks";
+import { useAppDispatch } from "./typedReduxHooks";
 import {
   fetchCategories,
   fetchProducts,

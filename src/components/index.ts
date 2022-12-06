@@ -1,4 +1,3 @@
-import Apploader from "./Apploader";
 import Header from "./Header";
 import UserIcon from "./UserIcon";
 import ShoppingCartIcon from "./ShoppingCartIcon";
@@ -18,7 +17,6 @@ import ProductListCard from "./ProductListCard";
 import Discounts from "./Discounts";
 
 export {
-  Apploader,
   Header,
   UserIcon,
   ShoppingCartIcon,

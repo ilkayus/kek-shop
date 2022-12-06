@@ -5,6 +5,7 @@ import {
   applyDiscounts,
 } from "../features/commonData/dataSlice";
 import { useAppSelector, useAppDispatch } from "../hooks/typedReduxHooks";
+import { mensClotging } from "assets/images";
 
 const Discounts = () => {
   const array = [...useAppSelector(selectProducts)];

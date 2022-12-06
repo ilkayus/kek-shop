@@ -1,7 +1,11 @@
 import { StyleSheet, View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const HeaderText = () => {
+interface Props {
+  title: string;
+}
+
+const HeaderText = ({ title }: Props) => {
   const navigation = useNavigation();
   const navigateToHome = () => {
     navigation.navigate("Home" as never);
@@ -9,7 +13,8 @@ const HeaderText = () => {
   return (
     <View style={styles.textContainer}>
       <Text onPress={navigateToHome} style={styles.headerText}>
-        kek-shop
+        {/* @ts-ignore */}
+        {ScreenTitles[title]}
       </Text>
     </View>
   );
@@ -22,9 +27,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
   },
+
   headerText: {
     fontSize: 20,
     fontWeight: "bold",
     color: "#442120",
   },
 });
+
+enum ScreenTitles {
+  Home = "kek-shop",
+  Cart = "◀️ Your Cart",
+  Category = "◀️ Category",
+  Product = "◀️ Product",
+}

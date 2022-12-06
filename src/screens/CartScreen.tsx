@@ -2,12 +2,11 @@ import { StyleSheet, Text, View, FlatList, Button } from "react-native";
 import { ProductListCard } from "../components";
 import { selectUserCart } from "../features/user/userSlice";
 import { selectProducts } from "../features/commonData/dataSlice";
-import { useAppDispatch, useAppSelector } from "../hooks/typedReduxHooks";
+import { useAppSelector } from "../hooks/typedReduxHooks";
 
 const CartScreen = () => {
   const cart = useAppSelector(selectUserCart);
   const products = useAppSelector(selectProducts);
-  const dispatch = useAppDispatch();
   const cartProducts =
     cart.length > 0
       ? cart[0].products.map((cartProduct) => {
