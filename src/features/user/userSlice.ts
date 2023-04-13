@@ -14,7 +14,7 @@ export interface IUserState {
 const initialState: IUserState = {
   user: <IUserData>{},
   isUserPending: true,
-  cart: <IShoppingCart[]>{},
+  cart: <IShoppingCart[]>[],
   isCartPending: true,
 };
 
@@ -118,7 +118,7 @@ export const userSlice = createSlice({
       state.isCartPending = true;
     });
     builder.addCase(fetchUserCart.fulfilled, (state, action) => {
-      state.cart = action.payload;
+      state.cart[0] = action.payload;
       state.isCartPending = false;
     });
   },

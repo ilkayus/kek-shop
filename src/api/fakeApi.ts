@@ -5,7 +5,7 @@ const getAllProducts = () => {
 };
 
 const getUserCart = (id: string) => {
-  return fetch(`https://fakestoreapi.com/carts/user/${id}`)
+  return fetch(`https://fakestoreapi.com/carts/${id}`)
     .then((response) => response.json())
     .then((json) => json);
 };
